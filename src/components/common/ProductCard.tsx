@@ -31,7 +31,7 @@ interface ProductCardProps {
 export function ProductCard({ product, priority = false }: ProductCardProps) {
   const { navigate, toggleWishlist, isInWishlist, showToast } = useMarketplace();
   const { isAuthenticated } = useAuth();
-  const { products: resellerProducts, addProductToCatalog, quickGenerateLandingPage } = useReseller();
+  const { isReseller, products: resellerProducts, addProductToCatalog, quickGenerateLandingPage } = useReseller();
 
   const isSaved = isInWishlist(product.id);
   const pricing = getProductResellerPricing(product, isAuthenticated);
@@ -56,7 +56,12 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
   const handleSellAction = async (e: React.MouseEvent) => {
     e.stopPropagation();
     if (!isAuthenticated) {
-      navigate('reseller-login');
+      navigate('reseller');
+      return;
+    }
+
+    if (!isReseller) {
+      navigate('reseller-register');
       return;
     }
 
@@ -88,7 +93,12 @@ export function ProductCard({ product, priority = false }: ProductCardProps) {
   const handleQuickLandingPage = async (e: React.MouseEvent) => {
     e.stopPropagation();
     if (!isAuthenticated) {
-      navigate('reseller-login');
+      navigate('reseller');
+      return;
+    }
+
+    if (!isReseller) {
+      navigate('reseller-register');
       return;
     }
 

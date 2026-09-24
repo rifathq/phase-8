@@ -268,6 +268,7 @@ export type ActiveView =
   | 'customer-account'
   | 'contact'
   | 'reseller'
+  | 'start-selling'
   | 'reseller-login'
   | 'reseller-register'
   | 'reseller-packages'

@@ -141,7 +141,7 @@ function MarketplaceContent() {
         {activeView === 'access-denied' && <AccessDeniedView />}
 
         {/* Reseller Routes */}
-        {activeView === 'reseller' && <ResellerLandingPage />}
+        {(activeView === 'reseller' || activeView === 'start-selling') && <ResellerLandingPage />}
         {activeView === 'reseller-login' && <ResellerLoginView />}
         {activeView === 'reseller-register' && <ResellerRegisterView />}
         {activeView === 'reseller-packages' && <ResellerPackagesView />}

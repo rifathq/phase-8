@@ -110,10 +110,10 @@ export function HowItWorksSection() {
         </div>
 
         <button
-          onClick={() => navigate('reseller-register')}
+          onClick={() => navigate('reseller')}
           className="px-7 py-3 rounded-full bg-[#C98F6B] hover:bg-[#b57a56] text-white text-xs sm:text-sm font-bold flex items-center gap-2 transition-colors shrink-0 shadow-md cursor-pointer"
         >
-          <span>Create Free Reseller Account</span>
+          <span>Start Selling with Zero Invest</span>
           <ArrowRight className="w-4 h-4" />
         </button>
       </div>

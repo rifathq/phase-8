@@ -189,7 +189,7 @@ export function MarketplaceProvider({ children }: { children: React.ReactNode })
       if (path === '/admin' || path.startsWith('/admin')) {
         return 'admin-dashboard';
       }
-      if (path === '/reseller' || path.startsWith('/reseller')) {
+      if (path === '/reseller' || path.startsWith('/reseller') || path === '/start-selling' || path.startsWith('/start-selling')) {
         return 'reseller';
       }
       if (path === '/search' || path.startsWith('/search')) {
@@ -605,7 +605,7 @@ export function MarketplaceProvider({ children }: { children: React.ReactNode })
           setActiveView('auth');
         } else if (path === '/admin' || path.startsWith('/admin')) {
           setActiveView('admin-dashboard');
-        } else if (path === '/reseller' || path.startsWith('/reseller')) {
+        } else if (path === '/reseller' || path.startsWith('/reseller') || path === '/start-selling' || path.startsWith('/start-selling')) {
           setActiveView('reseller');
         } else if (path === '/search' || path.startsWith('/search')) {
           if (popQ !== null) setSearchQuery(popQ);
@@ -624,6 +624,7 @@ export function MarketplaceProvider({ children }: { children: React.ReactNode })
           setActiveView('home');
         }
       };
+
       window.addEventListener('popstate', handlePopState);
       return () => window.removeEventListener('popstate', handlePopState);
     }
@@ -672,7 +673,7 @@ export function MarketplaceProvider({ children }: { children: React.ReactNode })
       setSearchQuery(options.query);
     }
 
-    const targetView: ActiveView = view === 'seller-dashboard' ? 'reseller' : view;
+    const targetView: ActiveView = view === 'seller-dashboard' ? 'reseller' : view === 'start-selling' ? 'reseller' : view;
 
     if (typeof window !== 'undefined') {
       if (targetView === 'auth') {
@@ -707,7 +708,7 @@ export function MarketplaceProvider({ children }: { children: React.ReactNode })
           window.history.pushState({}, '', targetUrl);
         }
       } else if (targetView === 'home') {
-        if (window.location.pathname === '/auth' || window.location.pathname === '/admin' || window.location.pathname === '/reseller' || window.location.pathname === '/search' || window.location.pathname.startsWith('/r/')) {
+        if (window.location.pathname === '/auth' || window.location.pathname === '/admin' || window.location.pathname === '/reseller' || window.location.pathname === '/start-selling' || window.location.pathname === '/search' || window.location.pathname.startsWith('/r/')) {
           window.history.pushState({}, '', '/');
         }
       }

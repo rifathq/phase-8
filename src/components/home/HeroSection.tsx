@@ -4,6 +4,7 @@ import React from 'react';
 import Image from 'next/image';
 import { useMarketplace } from '@/context/MarketplaceContext';
 import { useAuth } from '@/context/AuthContext';
+import { useReseller } from '@/context/ResellerContext';
 import { 
   ShieldCheck, 
   Zap, 
@@ -18,13 +19,22 @@ import {
 
 export function HeroSection() {
   const { navigate } = useMarketplace();
-  const { isAuthenticated } = useAuth();
+  const { isAuthenticated, role, userProfile } = useAuth();
+  const { isReseller } = useReseller();
+
+  const isUserReseller = Boolean(
+    isReseller || 
+    role === 'seller' || 
+    role === 'reseller' || 
+    userProfile?.role === 'seller' || 
+    userProfile?.role === 'reseller'
+  );
 
   const handleStartSelling = () => {
-    if (isAuthenticated) {
-      navigate('reseller-portal');
+    if (isAuthenticated && isUserReseller) {
+      navigate('reseller-dashboard');
     } else {
-      navigate('reseller-register');
+      navigate('reseller');
     }
   };
 
