@@ -19,7 +19,6 @@ import { PromotionalBanners } from '@/components/home/PromotionalBanners';
 import { TrustFeaturesStrip } from '@/components/home/TrustFeaturesStrip';
 import { RecommendedSection } from '@/components/home/RecommendedSection';
 import { HowItWorksSection } from '@/components/home/HowItWorksSection';
-import { FeaturedSellersSection } from '@/components/home/FeaturedSellersSection';
 import { NewsletterSection } from '@/components/home/NewsletterSection';
 
 // Secondary Views
@@ -110,7 +109,6 @@ function MarketplaceContent() {
             <TrustFeaturesStrip />
             <RecommendedSection />
             <HowItWorksSection />
-            <FeaturedSellersSection />
             <NewsletterSection />
           </div>
         )}

@@ -119,7 +119,7 @@ export function Footer() {
                 </button>
               </li>
               <li>
-                <button onClick={() => navigate('sellers')} className="hover:text-white transition-colors text-left">
+                <button onClick={() => navigate('shop')} className="hover:text-white transition-colors text-left">
                   Wholesale Catalogs
                 </button>
               </li>
