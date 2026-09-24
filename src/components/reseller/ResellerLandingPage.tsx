@@ -54,7 +54,7 @@ export const ResellerLandingPage: React.FC = () => {
   const faqs = [
     {
       q: 'Do I need upfront investment or capital to become a reseller?',
-      a: 'Zero capital required. You never buy inventory upfront or carry warehouse stock. You simply pick products, share landing pages, and earn when orders are delivered.'
+      a: 'No upfront inventory purchase required. You never buy inventory upfront or carry warehouse stock. You simply pick products, share landing pages, and earn when orders are delivered.'
     },
     {
       q: 'How does Cash on Delivery (COD) collection work?',
@@ -431,7 +431,7 @@ export const ResellerLandingPage: React.FC = () => {
                     ৳{estimatedMonthlyProfit.toLocaleString()}
                   </div>
                   <p className="text-xs text-neutral-400">
-                    Calculated on {calculatorSales * 30} successful monthly deliveries with zero capital locked
+                    Calculated on {calculatorSales * 30} successful monthly deliveries with no upfront inventory purchase needed
                   </p>
                 </div>
 
